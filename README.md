@@ -2,7 +2,7 @@
 
 Personal portfolio site for Zayam Mushtaq (AI Automation Specialist · n8n, Make, Zapier, GoHighLevel, Kommo · Backend & AI Agent Developer), built with React + Vite.
 
-Live projects featured: [RAG Knowledge Base API](https://github.com/zayam47/RAG-knowledge-base-API), [MCP Resume Assistant](https://github.com/zayam47/My-CV-Assistant), and Petify (AI-driven pet marketplace, final year project).
+Live projects featured: [AI Lead Qualification & CRM Auto-Sync](https://github.com/zayam47/Ai-Lead-Qualification-CRM-Sync), [AI Content Repurposing & Multi-Channel Publisher](https://github.com/zayam47/Content-Repurposing-Publisher), [RAG Knowledge Base API](https://github.com/zayam47/RAG-knowledge-base-API), [MCP Resume Assistant](https://github.com/zayam47/My-CV-Assistant), and Petify (AI-driven pet marketplace, final year project).
 
 ## Stack
 

@@ -13,7 +13,7 @@ export default function Projects() {
           <p className="kicker">Projects</p>
           <h2 className="section-title">Things I've built</h2>
           <p className="section-sub">
-            Real, working code — from a local-first RAG API to an agentic MCP assistant and a full-stack marketplace.
+            Real, working builds — from n8n AI-agent automations to a local-first RAG API and a full-stack marketplace.
           </p>
         </div>
 

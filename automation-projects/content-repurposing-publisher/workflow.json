@@ -1,0 +1,129 @@
+{
+  "name": "AI Content Repurposing & Multi-Channel Publisher",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * *" }]
+        }
+      },
+      "id": "9b6419c7-c308-4a02-82fc-26a568fa85db",
+      "name": "Daily Content Check",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-40, 300]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": { "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "mode": "name", "value": "ContentTracker" },
+        "filtersUI": {
+          "values": [
+            { "lookupColumn": "status", "lookupValue": "published" },
+            { "lookupColumn": "repurposed", "lookupValue": "no" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "39b79d1e-90ef-4d14-aaf1-c3c1fdf98509",
+      "name": "Get New Published Content",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [180, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": { "id": "GOOGLE_SHEETS_CREDENTIAL_ID", "name": "Google Sheets account" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You repurpose long-form content into social copy. Given a title and summary, return ONLY a JSON object with keys: linkedin_post (150-200 words, professional tone), twitter_thread (array of 4-6 short tweet strings), and instagram_caption (short, with 5 relevant hashtags)."
+            },
+            {
+              "role": "user",
+              "content": "=Title: {{ $json.title }}\nSummary: {{ $json.summary }}\nURL: {{ $json.url }}"
+            }
+          ]
+        },
+        "options": { "temperature": 0.5 }
+      },
+      "id": "af773980-7d3b-4a45-a296-ce96f1ef8217",
+      "name": "Generate Repurposed Copy",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.3,
+      "position": [400, 300],
+      "credentials": {
+        "openAiApi": { "id": "OPENAI_CREDENTIAL_ID", "name": "OpenAI account" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const parsed = JSON.parse($input.first().json.message.content);\nreturn [{\n  json: {\n    ...$('Get New Published Content').first().json,\n    linkedin_post: parsed.linkedin_post,\n    twitter_thread: parsed.twitter_thread.join('\\n\\n'),\n    instagram_caption: parsed.instagram_caption,\n  }\n}];"
+      },
+      "id": "414789fd-b9bb-47f3-8f5a-b25b1704fe73",
+      "name": "Parse Repurposed Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [620, 300]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": { "mode": "name", "value": "content-review" },
+        "text": "=📝 *New drafts ready for* <{{ $json.url }}|{{ $json.title }}>\n\n*LinkedIn:*\n{{ $json.linkedin_post }}\n\n*Twitter thread:*\n{{ $json.twitter_thread }}\n\n*Instagram caption:*\n{{ $json.instagram_caption }}\n\nReact ✅ to approve for scheduling.",
+        "otherOptions": {}
+      },
+      "id": "c89aa028-e2f7-4bcb-941a-87a2900ecf1e",
+      "name": "Send Drafts for Approval",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [840, 300],
+      "credentials": {
+        "slackApi": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack account" }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": { "mode": "id", "value": "YOUR_GOOGLE_SHEET_ID" },
+        "sheetName": { "mode": "name", "value": "ContentTracker" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "matchingColumns": ["title"],
+          "value": {
+            "title": "={{ $json.title }}",
+            "repurposed": "yes",
+            "repurposed_at": "={{ $now.toISO() }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "1efdf8ca-94da-4620-abe8-c0a4dea7fc50",
+      "name": "Mark Content as Repurposed",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1060, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": { "id": "GOOGLE_SHEETS_CREDENTIAL_ID", "name": "Google Sheets account" }
+      }
+    }
+  ],
+  "connections": {
+    "Daily Content Check": { "main": [[{ "node": "Get New Published Content", "type": "main", "index": 0 }]] },
+    "Get New Published Content": { "main": [[{ "node": "Generate Repurposed Copy", "type": "main", "index": 0 }]] },
+    "Generate Repurposed Copy": { "main": [[{ "node": "Parse Repurposed Content", "type": "main", "index": 0 }]] },
+    "Parse Repurposed Content": { "main": [[{ "node": "Send Drafts for Approval", "type": "main", "index": 0 }]] },
+    "Send Drafts for Approval": { "main": [[{ "node": "Mark Content as Repurposed", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "meta": {
+    "description": "Portfolio demo workflow by Zayam Mushtaq. Requires your own OpenAI, Slack, and Google Sheets credentials before activating."
+  }
+}

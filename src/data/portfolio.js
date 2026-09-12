@@ -71,6 +71,36 @@ export const skills = [
 
 export const projects = [
   {
+    title: 'AI Lead Qualification & CRM Auto-Sync',
+    subtitle: 'n8n Workflow · AI Agent + CRM Automation',
+    description:
+      'An n8n workflow that scores inbound leads with an LLM, drafts a personalized reply, and routes each lead into Kommo or GoHighLevel automatically — no manual triage.',
+    highlights: [
+      'AI node scores every lead hot / warm / cold and drafts a first-touch reply in the same call',
+      'Hot leads sync to Kommo CRM and ping sales in Slack; warm/cold leads go into a GoHighLevel nurture pipeline with an automated reply',
+      'Every lead is logged to a tracking sheet — full workflow JSON + design notes included',
+    ],
+    tags: ['n8n', 'AI Agents', 'Kommo', 'GoHighLevel', 'Slack', 'Workflow Automation'],
+    github: 'https://github.com/zayam47/zayam-portfolio/tree/main/automation-projects/ai-lead-qualification-crm-sync',
+    demo: null,
+    featured: true,
+  },
+  {
+    title: 'AI Content Repurposing & Multi-Channel Publisher',
+    subtitle: 'n8n Workflow · Marketing Automation',
+    description:
+      'An n8n workflow that turns newly published content into platform-ready LinkedIn, Twitter/X, and Instagram copy, then routes the drafts to Slack for human approval before anything ships.',
+    highlights: [
+      'Google Sheet content tracker as the single source of truth — no code changes needed to add new content',
+      'One AI call generates a LinkedIn post, a Twitter thread, and an Instagram caption in a single structured response',
+      'Human-in-the-loop approval via Slack, and idempotent processing so nothing gets repurposed twice',
+    ],
+    tags: ['n8n', 'AI Agents', 'Slack', 'Google Sheets', 'Content Automation'],
+    github: 'https://github.com/zayam47/zayam-portfolio/tree/main/automation-projects/content-repurposing-publisher',
+    demo: null,
+    featured: true,
+  },
+  {
     title: 'RAG Knowledge Base API',
     subtitle: 'Retrieval-Augmented Generation System',
     description:

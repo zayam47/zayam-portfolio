@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zayam-mushtaq.vercel.app/sitemap.xml

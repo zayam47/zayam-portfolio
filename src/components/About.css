@@ -1,0 +1,68 @@
+.about {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.about__summary {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.about__cards {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.about__card {
+  padding: 1.5rem;
+}
+
+.about__icon {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.about__card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.about__card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.about__faint {
+  color: var(--text-faint) !important;
+  font-size: 0.85rem !important;
+  margin-top: 0.2rem;
+}
+
+.about__cert-list li {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.about__cert-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+}

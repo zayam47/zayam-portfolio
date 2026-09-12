@@ -4,7 +4,7 @@ export const profile = {
   title: 'AI Automation Specialist | n8n • Make • Zapier • GoHighLevel • Kommo | Backend & AI Agent Developer',
   tagline:
     'I design and build AI-powered automation workflows and backend systems — connecting n8n, Make, Zapier, GoHighLevel, and Kommo with custom AI agents, RAG pipelines, and REST APIs to automate real business processes.',
-  location: 'Sialkot, Pakistan',
+  location: 'Lahore, Pakistan',
   email: 'zayammushtaq@gmail.com',
   github: 'https://github.com/zayam47',
   linkedin: 'https://www.linkedin.com/in/zayam-mushtaq-62569628b',

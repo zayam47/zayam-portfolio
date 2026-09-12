@@ -8,13 +8,12 @@ export default function Hero() {
       <div className="hero__glow" aria-hidden="true" />
       <div className="container hero__inner">
         <p className="hero__eyebrow">
-          <span className="hero__dot" aria-hidden="true" /> Available for AI Engineer & Backend roles
+          <span className="hero__dot" aria-hidden="true" /> Available for AI Automation & Backend roles
         </p>
         <h1 className="hero__title">
           Hi, I'm <span className="gradient-text">{profile.name}</span>
-          <br />
-          {profile.title}
         </h1>
+        <p className="hero__role">{profile.title}</p>
         <p className="hero__tagline">{profile.tagline}</p>
 
         <div className="hero__meta">

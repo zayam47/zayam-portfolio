@@ -42,7 +42,17 @@
 
 .hero__title {
   font-size: clamp(2.1rem, 5.2vw, 3.4rem);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.hero__role {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
 }
 
 .hero__tagline {

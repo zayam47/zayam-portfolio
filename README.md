@@ -1,6 +1,6 @@
 # Zayam Mushtaq — Portfolio
 
-Personal portfolio site for Zayam Mushtaq (AI Engineer · Python & FastAPI backend development), built with React + Vite.
+Personal portfolio site for Zayam Mushtaq (AI Automation Specialist · n8n, Make, Zapier, GoHighLevel, Kommo · Backend & AI Agent Developer), built with React + Vite.
 
 Live projects featured: [RAG Knowledge Base API](https://github.com/zayam47/RAG-knowledge-base-API), [MCP Resume Assistant](https://github.com/zayam47/My-CV-Assistant), and Petify (AI-driven pet marketplace, final year project).
 

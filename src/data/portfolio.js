@@ -1,9 +1,9 @@
 export const profile = {
   name: 'Zayam Mushtaq',
   initials: 'ZM',
-  title: 'AI Engineer — Python & FastAPI Backend Development',
+  title: 'AI Automation Specialist | n8n • Make • Zapier • GoHighLevel • Kommo | Backend & AI Agent Developer',
   tagline:
-    'I build grounded, retrieval-backed AI systems and clean REST APIs — from RAG pipelines to full-stack MERN platforms.',
+    'I design and build AI-powered automation workflows and backend systems — connecting n8n, Make, Zapier, GoHighLevel, and Kommo with custom AI agents, RAG pipelines, and REST APIs to automate real business processes.',
   location: 'Sialkot, Pakistan',
   email: 'zayammushtaq@gmail.com',
   github: 'https://github.com/zayam47',
@@ -11,10 +11,14 @@ export const profile = {
   resumeAI: '/resume/Zayam_Mushtaq_AI_Engineer_Resume.pdf',
   resumeBD: '/resume/Zayam_Mushtaq_Business_Development_Resume.pdf',
   summary:
-    "Computer Science graduate (BS, University of Gujrat) with hands-on experience building AI-powered backend systems. I developed a Retrieval-Augmented Generation (RAG) pipeline using Python, FastAPI, sentence embeddings, and vector search (ChromaDB) to deliver grounded, context-aware question answering — entirely on local, open-source models with no paid API dependency. I also bring full-stack MERN development, REST API design, and database architecture experience from a final-year AI-integrated marketplace project. Alongside the engineering track, I have hands-on business development experience — lead generation, client communication, and requirement gathering — which sharpens how I scope and communicate technical work.",
+    "Computer Science graduate (BS, University of Gujrat) working as an AI Automation Specialist — building AI agent and workflow automations on n8n, Make, Zapier, GoHighLevel, and Kommo, backed by custom Python/FastAPI services and AI integrations. On the engineering side, I developed a Retrieval-Augmented Generation (RAG) pipeline using Python, FastAPI, sentence embeddings, and vector search (ChromaDB) to deliver grounded, context-aware question answering — entirely on local, open-source models with no paid API dependency. I also bring full-stack MERN development, REST API design, and database architecture experience from a final-year AI-integrated marketplace project. Alongside the engineering track, I have hands-on business development experience — lead generation, client communication, and requirement gathering — which sharpens how I scope and automate real client workflows.",
 }
 
 export const skills = [
+  {
+    category: 'Automation & AI Agent Platforms',
+    items: ['n8n', 'Make (Integromat)', 'Zapier', 'GoHighLevel', 'Kommo CRM', 'Workflow Automation', 'AI Agent Design'],
+  },
   {
     category: 'Programming Languages',
     items: ['Python', 'JavaScript', 'SQL'],

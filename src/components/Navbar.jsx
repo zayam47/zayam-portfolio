@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { FiGithub, FiLinkedin, FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
+import avatar from '../assets/profile-avatar.jpg'
 import { profile } from '../data/portfolio'
 import './Navbar.css'
 
@@ -33,7 +34,7 @@ export default function Navbar({ theme, toggleTheme }) {
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         <a href="#top" className="navbar__brand" aria-label={`${profile.name} — home`}>
-          <span className="navbar__mark">{profile.initials}</span>
+          <img src={avatar} alt="" className="navbar__mark" width="34" height="34" />
           <span className="navbar__name">{profile.name}</span>
         </a>
 

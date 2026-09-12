@@ -33,13 +33,9 @@
 .navbar__mark {
   width: 34px;
   height: 34px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-  font-size: 0.85rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
 }
 
 .navbar__name {

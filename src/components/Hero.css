@@ -15,7 +15,34 @@
 }
 
 .hero__inner {
-  max-width: 780px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero__content {
+  max-width: 700px;
+  flex: 1;
+}
+
+.hero__portrait-wrap {
+  flex-shrink: 0;
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.hero__portrait {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 4px solid var(--bg);
 }
 
 .hero__eyebrow {
@@ -100,6 +127,35 @@
 
 .hero__social a:hover {
   color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .hero__inner {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
+
+  .hero__role,
+  .hero__tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__meta,
+  .hero__actions,
+  .hero__social {
+    justify-content: center;
+  }
+
+  .hero__portrait-wrap {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 @media (max-width: 640px) {
